@@ -1,0 +1,16 @@
+{%set title='home' %}
+{% include 'TESTPlateformBundle:Photo:header.html.twig' %}
+   <ul>
+     {% for key, groupe in all_photos %}
+	 <li><h2>{{key}}</h2>{% for photo in groupe %}
+     <a href="{{ path('test_plateform_view_one',
+	 {'society_name': photo.societyOfOwner,
+	 'title':photo.title,
+	 'ext':(photo.image | slice((photo.image | length) - 3, (photo.image | length))),
+	 'id':photo.id
+	 })}}">
+	 <img src="{{ asset(photo.image) }}"/></a>
+   {% endfor %}</li>
+   {% endfor %}
+   </ul>
+{% include 'TESTPlateformBundle:Photo:footer.html.twig' %}

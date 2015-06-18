@@ -1,0 +1,19 @@
+{% set title="login" %}
+{% include 'TESTPlateformBundle:Photo:header.html.twig' %}
+{% if error %}
+<div class="alert alert-danger allert">{{ error.message }}</div>
+{% endif %}
+
+{# Le formulaire, avec URL de soumission vers la route « login_check » comme on l'a vu #}
+<form action="{{ path('login_check') }}" method="post">
+<div id="Form">
+<label for="username">Login :</label>
+<input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+<label for="password">Mot de passe :</label>
+<input type="password" id="password" name="_password" />
+<br />
+<input type="submit" value="Connexion" />
+</form>
+</div>
+{% include 'TESTPlateformBundle:Photo:footer.html.twig' %}

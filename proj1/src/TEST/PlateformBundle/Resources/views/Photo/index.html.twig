@@ -1,0 +1,38 @@
+{%set title='home' %}
+{% include 'TESTPlateformBundle:Photo:header.html.twig' %}
+<link rel="stylesheet" href="{{ asset('bundles/perso/photoswipe.css') }}" type="text/css" media="all" />
+<script type="text/javascript">
+	$(document).ready(function () {
+		var carousel = $(".carousel"
+).waterwheelCarousel({
+		flankingItems: 3,
+		});
+
+		$('#prev').bind('click', function () {
+		carousel.prev();
+		return false
+		});
+		
+		$('#next').bind('click', function () {
+		carousel.next();
+		return false
+		});
+	});
+</script>
+
+     {% for key, groupe in all_photos %}
+	 	<h2 class="titlek">{{key}}</h2>
+		<div class="carousel">
+		{% for photo in groupe %}
+     		<a href="{{ path('test_plateform_view_one',
+	 			{'society_name': photo.societyOfOwner,
+	 			'title':photo.title,
+	 			'ext':(photo.image | slice((photo.image | length) - 3, (photo.image | length))),
+	 			'id':photo.id
+	 			})}}">
+	 		<img src="{{ asset(photo.image) }}"/></a>
+   		{% endfor %}
+		</div>
+   {% endfor %}
+
+{% include 'TESTPlateformBundle:Photo:footer.html.twig' %}

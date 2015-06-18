@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="{{ asset('bundles/perso/header.css') }}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('bundles/perso/footer.css') }}" type="text/css" media="all" />
+    <title>Site de test : {{title}}</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="{{ asset('bundles/perso/jquery.waterwheelCarousel.min.js') }}"></script>
+  </head>
+  <body>
+  <div id="header">
+    <div id="header2"><div id="testt"><p id="a">{{title}}</p></div>
+	{% if (is_granted('ROLE_USER') or is_granted('ROLE_ADMIN')) %}
+	<a href="{{path('logout')}}"> <div id="lo">Logout</div></a>
+	{% else %}
+	<a href="{{path('login')}}"> <div id="lo">Login</div></a>
+	{% endif %}
+	</div>
+  </div>
+  <div id="bod">
+  </div>

@@ -1,0 +1,12 @@
+test_plateform_homepage:
+    path:       /plateform/
+    defaults:   { _controller: TESTPlateformBundle:Photo:view }
+
+test_plateform_add:
+    path:       /plateform/add_photo_formular
+    defaults:   { _controller: TESTPlateformBundle:Photo:add_photo_formular }
+
+test_plateform_view_one:
+    path:       /plateform/{society_name}/{title}/fichier.{ext}
+    defaults:   { _controller: TESTPlateformBundle:Photo:view_one_photo }
+

@@ -1,0 +1,5 @@
+{% set title=photo.title %}
+{% include 'TESTPlateformBundle:Photo:header.html.twig' %}
+  <img id="final" src="{{ asset(photo.image) }}"/>
+   <p id="sign"> By {{photo.owner}} @ {{photo.societyOfOwner}} </p>
+{% include 'TESTPlateformBundle:Photo:footer.html.twig' %}
